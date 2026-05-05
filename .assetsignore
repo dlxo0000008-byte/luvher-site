@@ -1,0 +1,13 @@
+.git
+.git/**
+.wrangler
+.wrangler/**
+wrangler.jsonc
+wrangler.toml
+README.md
+.gitignore
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/**
+.idea/**
