@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — 연려 LUV HER</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="site-header is-scrolled">
+    <div class="header-inner">
+      <a href="../" class="logo"><img src="logo_mark.png" alt="연려"></a>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-wrap">
+      <div class="admin-head">
+        <p class="admin-eyebrow">Admin</p>
+        <h1 class="admin-title">제품 & 콘텐츠 관리</h1>
+        <p class="admin-meta" id="admin-meta">로딩 중...</p>
+      </div>
+
+      <div class="status-card" id="status-card"></div>
+      <div class="action-bar" id="action-bar"></div>
+
+      <h2 class="admin-section-title">Products (제품)</h2>
+      <div class="readonly-list" id="products-list"></div>
+
+      <h2 class="admin-section-title">Content (텍스트)</h2>
+      <div class="readonly-list" id="content-list"></div>
+
+      <details class="admin-setup" id="setup-section">
+        <summary>시트 설정 가이드 / URL 변경</summary>
+        <div class="setup-body">
+          <h3>1단계 — Products 탭 만들기</h3>
+          <p>시트의 첫 탭 이름을 <code>Products</code>로 변경. 첫 행에 헤더, 두 번째 행부터 제품 데이터.</p>
+          <pre>id      | name             | price  | image                    | instagram
+yr-001  | 시그니처 티셔츠   | 58000  | https://.../img.jpg      | https://www.instagram.com/p/ABC/
+yr-002  | 오버사이즈 셔츠   | 89000  | https://.../img2.jpg     | https://www.instagram.com/p/DEF/</pre>
+
+          <h3>2단계 — Content 탭 만들기</h3>
+          <p>하단 + 버튼으로 새 탭 추가, 이름 <code>Content</code>. 첫 행 헤더 <code>key | value</code>, 아래에 사이트 텍스트.</p>
+          <pre>key                 | value
+hero_tagline        | For those who love themselves first
+brand_eyebrow       | Brand Story
+brand_paragraph_1   | 연려는 자기다움을 사랑하는 사람들을 위한 브랜드입니다.
+brand_paragraph_2   | 가장 단단한 태도와 가장 솔직한 표현으로...
+brand_quote         | "You don't need permission to be beautiful."
+brand_paragraph_3   | 꾸미지 않아도 강한 사람...
+brand_signature     | — LUV HER
+footer_brand        | 연려 LUV HER
+footer_tagline      | For those who love themselves first.
+footer_copyright    | © 2026 LUV HER. All rights reserved.
+footer_bottom       | YEONRYEO · LUV HER
+instagram_url       | https://www.instagram.com/yeonryeo_object/
+instagram_label     | Instagram @yeonryeo_object</pre>
+          <p><small>※ 셀 안에서 줄바꿈은 <code>Alt + Enter</code> (Mac은 <code>Option + Enter</code>). 줄바꿈은 사이트에서 그대로 적용됨.</small></p>
+
+          <h3>3단계 — 시트 공유 권한</h3>
+          <p>우측 상단 <strong>[공유]</strong> → 일반 액세스 → <strong>"링크가 있는 모든 사용자: 뷰어"</strong>. 본인만 편집자 권한 유지.</p>
+
+          <h3>4단계 — 시트 URL 등록</h3>
+          <p>시트 URL을 붙여넣고 [테스트] 클릭. 성공하면 <code>page/sheets-config.js</code>에 저장할 코드가 생성됩니다.</p>
+          <div class="setup-input">
+            <label class="label-text">시트 URL</label>
+            <input type="text" id="sheet-url-input" placeholder="https://docs.google.com/spreadsheets/d/.../edit">
+            <button type="button" class="btn btn-primary" id="btn-test">테스트 & 코드 생성</button>
+          </div>
+          <p class="setup-status" id="setup-status"></p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <div class="modal" id="export-modal" hidden>
+    <div class="modal-inner">
+      <h2 class="modal-title">sheets-config.js 코드</h2>
+      <p class="modal-desc">아래 코드를 <code>page/sheets-config.js</code> 파일에 덮어쓰면 사이트가 이 시트를 사용합니다.</p>
+      <textarea id="export-text" readonly></textarea>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="btn-copy">코드 복사</button>
+        <button type="button" class="btn" id="btn-close-modal">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="sheets-config.js"></script>
+  <script src="sheets.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
