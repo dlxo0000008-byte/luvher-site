@@ -107,7 +107,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-logo {
-  width: clamp(220px, 44vw, 600px);
+  width: clamp(300px, 60vw, 820px);
   height: auto;
   margin: 0 auto;
   filter: drop-shadow(0 8px 40px rgba(255, 255, 255, 0.04));
